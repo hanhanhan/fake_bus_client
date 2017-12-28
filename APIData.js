@@ -1,4 +1,4 @@
-const api_data = {
+export const apiData = {
   "schedule": {
     "1": {
       "1": [
