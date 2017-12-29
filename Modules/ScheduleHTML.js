@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 import {apiData} from './APIData.js'
 import formatRouteTimes from './FormatRouteTimes.js'
@@ -35,7 +35,7 @@ export default function makeScheduleHtml(busStop){
       <tbody>
         ${routes
             .map((routeSchedule) => makeTableRow(routeSchedule))
-            .join("<br>")}
+            .join("")}
       </tbody>
     </table>`
     )
