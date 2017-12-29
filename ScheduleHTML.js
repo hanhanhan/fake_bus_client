@@ -13,28 +13,28 @@ const tableHeader = `
     </thead>
 `
 
-function makeTableRow(route_schedule){ 
-    const [route_name, route_times] = route_schedule
-    const upcomingBuses = formatRouteTimes(route_times)
+function makeTableRow(routeSchedule){ 
+    const [routeName, routeTimes] = routeSchedule
+    const upcomingBuses = formatRouteTimes(routeTimes)
 
     return (
     `<tr>
-        <td class="route route-${route_name}">${route_name}</td>
-        <td>${route_times}</td>      
+        <td class="route route-${routeName}">${routeName}</td>
+        <td>${upcomingBuses}</td>      
     </tr>`
     )
 }
 
-export default function makeScheduleHtml(bus_stop){
-    const routes_schedule = schedule[bus_stop]
-    const routes = Object.entries(routes_schedule)
+export default function makeScheduleHtml(busStop){
+    const routesSchedule = schedule[busStop]
+    const routes = Object.entries(routesSchedule)
 
     return (
     `<table class="u-full-width">
       ${tableHeader}
       <tbody>
         ${routes
-            .map((route_schedule) => makeTableRow(route_schedule))
+            .map((routeSchedule) => makeTableRow(routeSchedule))
             .join("<br>")}
       </tbody>
     </table>`
