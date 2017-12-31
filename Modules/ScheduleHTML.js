@@ -26,9 +26,7 @@ function makeTableRow(routeSchedule){
 }
 
 export default function makeScheduleHtml(schedule, busStop){
-    console.log('this is the schedule')
-    console.log(schedule)
-    console.log('bus stop   ', busStop)
+
     let routesSchedule = schedule[busStop]
     let routes = Object.entries(routesSchedule)
 
