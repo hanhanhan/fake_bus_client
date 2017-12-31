@@ -6,6 +6,7 @@ import socket from './Modules/APIConnection.js'
 
 
 let busStops = ["1", "2"]
+let busStopsInput = document.getElementsByClass('bus-stop-selection')
 
 function updateSchedule(schedule){
   const makeHtml = makeScheduleHtml.bind(null, schedule)
@@ -15,11 +16,10 @@ function updateSchedule(schedule){
   document.getElementById('schedule').innerHTML = filteredScheduleHtml
 }
 
-document.getElementById('bus-stop').innerHTML = makeBusStopSelectionHtml()
-// console.log(makeBusStopSelectionHtml())
-
 socket.on('schedule', (schedule) => {
   updateSchedule(schedule)
   setInterval(updateSchedule, 15000, schedule)
   localStorage.setItem('schedule', JSON.stringify(schedule))
 })
+
+document.getElementById('bus-stop').innerHTML = makeBusStopSelectionHtml()
