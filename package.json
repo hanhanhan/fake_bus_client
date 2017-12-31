@@ -1,0 +1,22 @@
+{
+  "name": "fakebusclient",
+  "version": "1.0.0",
+  "description": "Client for the FakeBus API",
+  "main": "App.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanhanhan/fake_bus_client.git"
+  },
+  "author": "hanhanhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanhanhan/fake_bus_client/issues"
+  },
+  "homepage": "https://github.com/hanhanhan/fake_bus_client#readme",
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  }
+}

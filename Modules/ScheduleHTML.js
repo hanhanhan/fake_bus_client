@@ -1,9 +1,9 @@
 'use strict'
 
-import {apiData} from './APIData.js'
+// import {apiData} from './APIData.js'
 import formatRouteTimes from './FormatRouteTimes.js'
 
-const schedule = apiData["schedule"]
+// const schedule = apiData["schedule"]
 const tableHeader = `
     <thead>
       <tr>
@@ -25,9 +25,12 @@ function makeTableRow(routeSchedule){
     )
 }
 
-export default function makeScheduleHtml(busStop){
-    const routesSchedule = schedule[busStop]
-    const routes = Object.entries(routesSchedule)
+export default function makeScheduleHtml(schedule, busStop){
+    console.log('this is the schedule')
+    console.log(schedule)
+    console.log('bus stop ', busStop)
+    let routesSchedule = schedule[busStop]
+    let routes = Object.entries(routesSchedule)
 
     return (
     `<table class="u-full-width">
