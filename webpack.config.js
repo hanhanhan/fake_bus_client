@@ -1,7 +1,9 @@
 module.exports = {
     entry: "./App.js",
     output: {
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
-    watch: true
+    watch: true,
+    "scripts": {
+    "test": "jest-webpack",
 }

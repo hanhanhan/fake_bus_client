@@ -18,5 +18,9 @@
   "homepage": "https://github.com/hanhanhan/fake_bus_client#readme",
   "dependencies": {
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "jest": "^22.0.4",
+    "jest-webpack": "^0.3.1"
   }
 }

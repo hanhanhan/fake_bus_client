@@ -31,12 +31,13 @@ export default function makeScheduleHtml(schedule, busStop){
     let routes = Object.entries(routesSchedule)
 
     return (
+
     `<table class="u-full-width">
       ${tableHeader}
       <tbody>
         ${routes
             .map((routeSchedule) => makeTableRow(routeSchedule))
-            .join("")}
+            .join('')}
       </tbody>
     </table>`
     )

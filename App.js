@@ -21,5 +21,3 @@ socket.on('schedule', (schedule) => {
   setInterval(update, 15000, schedule)
   localStorage.setItem('schedule', JSON.stringify(schedule))
 })
-
-console.log(socket)
