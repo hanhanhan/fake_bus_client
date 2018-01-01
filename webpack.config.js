@@ -4,6 +4,4 @@ module.exports = {
         filename: "bundle.js",
     },
     watch: true,
-    "scripts": {
-    "test": "jest-webpack",
 }
