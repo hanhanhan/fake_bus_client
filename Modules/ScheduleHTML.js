@@ -30,9 +30,9 @@ export default function makeScheduleHtml(schedule, busStop){
     let routesSchedule = schedule[busStop]
     let routes = Object.entries(routesSchedule)
 
-    return (
-
-    `<table class="u-full-width">
+    return (`
+    <h4>Bus Stop ${busStop}</h4>
+    <table class="u-full-width">
       ${tableHeader}
       <tbody>
         ${routes
