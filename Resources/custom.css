@@ -7,6 +7,7 @@
 body { 
     overflow-y: visible;
     padding: 1em;
+    padding-bottom: 100px;
 }
 
 h4 {
@@ -78,16 +79,6 @@ select {
    *background: #58B14C;
    -webkit-appearance: none;
 }
-
-/*#mainselection {
-   overflow:hidden;
-   width:350px;
-   -moz-border-radius: 9px 9px 9px 9px;
-   -webkit-border-radius: 9px 9px 9px 9px;
-   border-radius: 9px 9px 9px 9px;
-   box-shadow: 1px 1px 11px #330033;
-   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
-}*/
 
 .bus-stop {
     margin: 4px;
