@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" type="text/css" href="./Resources/custom.css">
 
+    <link rel="stylesheet" type="text/css" href="./Resources/UI-Dropdown/dropdown.min.css">
+
     <link rel="apple-touch-icon" sizes="180x180" href="./Resources/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./Resources/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./Resources/favicons/favicon-16x16.png">
@@ -30,8 +32,20 @@
     <br>
     <h4>Which Bus?</h4>
     <div id="bus-stop-selection"></div>
+    <br>
 
-    <script type="text/javascript" src="./dist/bundle.js"></script>
+    <script type="text/javascript">$('.ui.dropdown').dropdown()</script>
+    <div class="ui dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="default text">Gender</div>
+      <div class="menu">
+        <div class="item" data-value="male">Male</div>
+        <div class="item" data-value="female">Female</div>
+      </div>
+    </div>
 
+    <script src="./dist/bundle.js"></script>
+    <!-- <script src="./Resources/UI-Dropdown/dropdown.min.js"></script> -->
 </body>
 </html>
