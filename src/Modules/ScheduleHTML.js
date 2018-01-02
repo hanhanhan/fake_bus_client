@@ -1,9 +1,7 @@
 'use strict'
 
-// import {apiData} from './APIData.js'
 import formatRouteTimes from './FormatRouteTimes.js'
 
-// const schedule = apiData["schedule"]
 const tableHeader = `
     <thead>
       <tr>
@@ -17,8 +15,8 @@ function makeTableRow(routeSchedule){
     const [routeName, routeTimes] = routeSchedule
     const upcomingBuses = formatRouteTimes(routeTimes)
 
-    return (
-    `<tr>
+    return (`
+    <tr>
         <td class="route route-${routeName}">${routeName}</td>
         <td>${upcomingBuses}</td>      
     </tr>`

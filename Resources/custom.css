@@ -6,10 +6,11 @@
 
 body { 
     overflow-y: visible;
+    padding: 1em;
 }
 
-.title {
-    /*margin-top: 2rem;*/
+h4 {
+    margin-bottom: 0;
 }
 
 .schedule {
@@ -47,8 +48,8 @@ th:first-child, td:first-child, .route {
 }
 
 .times li {
-    /*display: inline-block;
-}*/
+    display: inline-block;
+}
 
 ul {
     list-style: none;
