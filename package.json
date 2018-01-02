@@ -1,22 +1,37 @@
 {
-  "name": "fakebusclient",
-  "version": "1.0.0",
-  "description": "Client for the FakeBus API",
+  "name": "fake_bus_client",
+  "version": "0.0.0",
   "main": "App.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hanhanhan/fake_bus_client.git"
   },
-  "author": "hanhanhan",
+  "keywords": [
+    "javascript",
+    "websockets",
+    "schedule"
+  ],
+  "author": "Hannah Lazarus",
   "license": "ISC",
+  "description": "Mock client for a bus schedule API.",
+  "dependencies": {
+    "socket.io-client": "^2.0.4",
+    "webpack": "^3.10.0"
+  },
   "bugs": {
     "url": "https://github.com/hanhanhan/fake_bus_client/issues"
   },
   "homepage": "https://github.com/hanhanhan/fake_bus_client#readme",
-  "dependencies": {
-    "socket.io": "^2.0.4"
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "skeleton-css": "^2.0.4",
+    "style-loader": "^0.19.1",
+    "webpack-dev-server": "^2.9.7"
   }
 }

@@ -1,7 +1,24 @@
+const path = require("path")
+
 module.exports = {
-    entry: "./App.js",
+    entry: "./src/App.js",
     output: {
-        filename: "bundle.js"
+        filename: "./bundle.js",
+        path: path.join(__dirname, "dist"),
     },
-    watch: true
+    // devServer: {
+    //     contentBase: path.join(__dirname, "dist"),
+    //     port: 8080
+    // },
+    module: {
+        loaders: [
+            { 
+                test: /\.css$/,
+                use: [
+                    {loader: "style-loader"},
+                    {loader: "css-loader"}
+                ] 
+            }
+        ]
+    }
 }

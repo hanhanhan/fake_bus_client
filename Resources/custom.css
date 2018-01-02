@@ -9,8 +9,7 @@ body {
 }
 
 .title {
-    /*position: static;*/
-    margin-top: 2rem;
+    /*margin-top: 2rem;*/
 }
 
 .schedule {
@@ -48,8 +47,8 @@ th:first-child, td:first-child, .route {
 }
 
 .times li {
-    /*display: inline-block;*/
-}
+    /*display: inline-block;
+}*/
 
 ul {
     list-style: none;
@@ -79,7 +78,7 @@ select {
    -webkit-appearance: none;
 }
 
-#mainselection {
+/*#mainselection {
    overflow:hidden;
    width:350px;
    -moz-border-radius: 9px 9px 9px 9px;
@@ -87,45 +86,44 @@ select {
    border-radius: 9px 9px 9px 9px;
    box-shadow: 1px 1px 11px #330033;
    background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
-}
+}*/
 
 .bus-stop {
-    margin:4px;
-    background-color:#EFEFEF;
-    border-radius:0px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
+    margin: 4px;
+    background-color: #EFEFEF;
+    border-radius: 0px;
+    border: 1px solid #D0D0D0;
+    overflow: auto;
+    float: left;
 }
 
 .bus-stop label {
     float:left;
-    width:4.0em;
+    width: 4.0em;
 }
 
 .bus-stop label span {
-    text-align:center;
-    padding:3px;
-    padding-top: 1em;
+    text-align: center;
+    padding: 2px;
     display:block;
 }
 
 .bus-stop label input {
-    position:absolute;
-    right:200%;
+    position: absolute;
+    right: 200%;
 }
 
 .bus-stop input:checked + span {
     background-color: black;
-    color:#fff;
+    color: #fff;
 }
 
 .bus-stop input:hover + span {
     background-color: slategray;
-    color:#fff;
+    color: #fff;
 }
 
 .bus-stop input:checked:hover + span {
     background-color: gray;
-    color:#fff;
+    color: #fff;
 }
