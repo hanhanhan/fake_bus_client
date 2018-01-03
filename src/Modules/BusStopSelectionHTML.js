@@ -11,12 +11,14 @@ export default function makeBusStopSelectionHtml(){
 function makeBusStopOptionHtml(){
     let busStopsArray = []
     let stopHTML
+
     // Header/default value
     busStopsArray.push(`
         <option value="">
             Nearest Bus Stops
         </option>
         `)
+    
     // Numbered stops
     for (let stop = 1; stop < 11; stop++){  
         let stopHTML = 
