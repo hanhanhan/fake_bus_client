@@ -2,27 +2,45 @@
 
 import makeScheduleHtml from './Modules/ScheduleHTML.js'
 import socket from './Modules/APIConnection.js'
-import makeBusStopSelectionHtml from './Modules/BusStopSelectionHtml'
+import initialBusStops from './Modules/InitialBusStops.js'
+import './Modules/BusStopUpdate.js'
 
+let scheduleArg
+const busStopsSelect = document.getElementById('bus-stop-select')
 
-
-let busStops = ["1", "2"]
 
 function update(schedule){
-  const makeHtml = makeScheduleHtml.bind(null, schedule)
+    const busStops = getBusStops()
+    const makeHtml = makeScheduleHtml.bind(null, schedule)
 
-  const filteredScheduleHtml = busStops
-    .map((busStop) => makeHtml(busStop))
-    .join('')
+    document.getElementById('schedule').innerHTML = 
+        busStops.map((busStop) => makeHtml(busStop))
+        .join('')
+}
 
-    document.getElementById('schedule').innerHTML = filteredScheduleHtml
+function getBusStops(){
+    let busStops = Array.from(
+        document.getElementById('bus-stop-select')
+        .selectedOptions)
+        .map((stop) => stop.value)
+
+    if (busStops.length < 1) {
+        return initialBusStops
+    } else {
+        return busStops
+    }
 }
 
 socket.on('schedule', (schedule) => {
-  update(schedule)
-  setInterval(update, 15000, schedule)
+    update(schedule)
+    setInterval(update, 15000, schedule)
+    scheduleArg = schedule
 })
 
-// on document load, set busStops = 1, 2 => trigger update of schedule
-const busStopsSelector = document.getElementById('bus-stop-section')
-busStopsSelector.innerHTML = makeBusStopSelectionHtml()
+function updateOnUI(){
+    update(scheduleArg)
+}
+
+busStopsSelect.onchange = updateOnUI  
+//NOTE: update.bind(null, scheduleArg) doesn't work
+

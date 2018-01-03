@@ -2,7 +2,7 @@
 
 export default function makeBusStopSelectionHtml(){   
     return `
-    <select name="skills" multiple="" class="ui dropdown" id="bus-stop-select">
+    <select name="bus stop select" multiple="" class="ui dropdown" id="bus-stop-select">
         ${makeBusStopOptionHtml()}
     </select>
     `
