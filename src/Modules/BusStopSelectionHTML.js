@@ -1,18 +1,33 @@
 'use strict'
 
 export default function makeBusStopSelectionHtml(){   
+    return `
+    <select name="bus stop select" multiple="" class="ui dropdown" id="bus-stop-select">
+        ${makeBusStopOptionHtml()}
+    </select>
+    `
+}
+
+function makeBusStopOptionHtml(){
     let busStopsArray = []
     let stopHTML
-    for (let stop = 1; stop < 11; stop++){  
-        stopHTML = 
-        `<div class="bus-stop">
-            <label>
-                <input type="checkbox" hidden value="${stop}" size="10">
-                <span>${stop}</span>
-            </label>
-        </div>`
 
+    // Header/default value
+    busStopsArray.push(`
+        <option value="">
+            Nearest Bus Stops
+        </option>
+        `)
+    
+    // Numbered stops
+    for (let stop = 1; stop < 11; stop++){  
+        let stopHTML = 
+        `<option value="${stop}">
+            ${stop}
+        </option>
+        `
         busStopsArray.push(stopHTML)
     }
-    return busStopsArray.join('')
+
+    return busStopsArray.join('') 
 }

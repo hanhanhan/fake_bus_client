@@ -3337,6 +3337,10 @@ module.exports = function(obj, fn){
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Modules_ScheduleHTML_js__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Modules_APIConnection_js__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Modules_BusStopSelectionHtml__ = __webpack_require__(48);
+
+
+
 
 
 
@@ -3345,7 +3349,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 let busStops = ["1", "2"]
 
 function update(schedule){
-  
   const makeHtml = __WEBPACK_IMPORTED_MODULE_0__Modules_ScheduleHTML_js__["a" /* default */].bind(null, schedule)
 
   const filteredScheduleHtml = busStops
@@ -3358,9 +3361,14 @@ function update(schedule){
 __WEBPACK_IMPORTED_MODULE_1__Modules_APIConnection_js__["a" /* default */].on('schedule', (schedule) => {
   update(schedule)
   setInterval(update, 15000, schedule)
-  localStorage.setItem('schedule', JSON.stringify(schedule))
 })
 
+// on document load, set busStops = 1, 2 => trigger update of schedule
+// const busStopsSelector = document.getElementById('bus-stop-selection')
+// busStopsSelector.innerHTML = makeBusStopSelectionHtml()
+// const busStopInputs = document.getElementsByClassName('bus-stop')
+//     .foreach(console.log(item))
+// busStopsSelectors.onchange = event.target => {console.log(event.target)}
 
 /***/ }),
 /* 21 */
@@ -3371,14 +3379,12 @@ __WEBPACK_IMPORTED_MODULE_1__Modules_APIConnection_js__["a" /* default */].on('s
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FormatRouteTimes_js__ = __webpack_require__(22);
 
 
-// import {apiData} from './APIData.js'
 
 
-// const schedule = apiData["schedule"]
 const tableHeader = `
     <thead>
       <tr>
-        <th>Routeapple</th>
+        <th>Route</th>
         <th>Arriving In</th>
       </tr>
     </thead>
@@ -3401,7 +3407,8 @@ function makeScheduleHtml(schedule, busStop){
     let routesSchedule = schedule[busStop]
     let routes = Object.entries(routesSchedule)
 
-    return (`<h4>Bus Stop ${busStop}</h4>
+    return (`
+    <h4>Bus Stop ${busStop}</h4>
     <table class="u-full-width">
       ${tableHeader}
       <tbody>
@@ -6786,6 +6793,31 @@ Backoff.prototype.setJitter = function(jitter){
 };
 
 
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export default */
+
+
+function makeBusStopSelectionHtml(){   
+    let busStopsArray = []
+    let stopHTML
+    for (let stop = 1; stop < 11; stop++){  
+        stopHTML = 
+        `<div class="bus-stop">
+            <label>
+                <input type="checkbox" hidden value="${stop}" size="10">
+                <span>${stop}</span>
+            </label>
+        </div>`
+
+        busStopsArray.push(stopHTML)
+    }
+    return busStopsArray.join('')
+}
 
 /***/ })
 /******/ ]);

@@ -4,12 +4,19 @@
     
     <title>FakeBus</title>
 
-    <link rel="stylesheet" href="./Resources/Skeleton-2.0.4/css/normalize.css">
+    <!-- UI Bus Stop Selection - NOTE: Multi-select item removal and style not correct with partial compiled "dropdown" + "transition" files. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 
+    <!-- Size Responsive CSS -->
+    <link rel="stylesheet" href="./Resources/Skeleton-2.0.4/css/normalize.css">
     <link rel="stylesheet" href="./Resources/Skeleton-2.0.4/css/skeleton.css">
 
     <link rel="stylesheet" type="text/css" href="./Resources/custom.css">
 
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./Resources/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./Resources/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./Resources/favicons/favicon-16x16.png">
@@ -19,19 +26,18 @@
     <meta name="msapplication-config" content="./Resources/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-
     <h2 class="title">FakeBus</h2>
-
     <div id="schedule"></div>
-    <br>
-    <h4>Which Bus?</h4>
-    <div id="bus-stop-selection"></div>
-
-    <script type="text/javascript" src="./dist/bundle.js"></script>
     
+    <h4>Which Bus Stops?</h4>
+    <div id="bus-stop-section"></div>
+
+    <script src="./dist/bundle.js"></script>
+    <script>$('.ui.dropdown').dropdown()</script>
 </body>
 </html>
