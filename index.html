@@ -4,14 +4,28 @@
     
     <title>FakeBus</title>
 
+    <!-- Size Responsive CSS -->
     <link rel="stylesheet" href="./Resources/Skeleton-2.0.4/css/normalize.css">
-
     <link rel="stylesheet" href="./Resources/Skeleton-2.0.4/css/skeleton.css">
 
     <link rel="stylesheet" type="text/css" href="./Resources/custom.css">
 
-    <link rel="stylesheet" type="text/css" href="./Resources/UI-Dropdown/dropdown.min.css">
+    <!-- Semantic UI CSS + JS for Dropdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Resources/UI-Dropdown/dropdown.css">
+    <script src="./Resources/UI-Dropdown/dropdown.js"></script>
+    <link rel="stylesheet" href="/Resources/UI-Transition/transition.css">
+    <script src="/Resources/UI-Transition/transition.js"></script> 
+       
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>  -->
 
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">  -->
+
+    <!-- Selectize.js Library for Bus Stop Selection -->
+    <!-- <script src="./Resources/selectize/dist/js/selectize.js"   ></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./Resources/selectize/dist/css/selectize.css"> -->
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./Resources/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./Resources/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./Resources/favicons/favicon-16x16.png">
@@ -21,31 +35,18 @@
     <meta name="msapplication-config" content="./Resources/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-
     <h2 class="title">FakeBus</h2>
-
     <div id="schedule"></div>
-    <br>
-    <h4>Which Bus?</h4>
-    <div id="bus-stop-selection"></div>
-    <br>
-
-    <script type="text/javascript">$('.ui.dropdown').dropdown()</script>
-    <div class="ui dropdown">
-      <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
-      <div class="default text">Gender</div>
-      <div class="menu">
-        <div class="item" data-value="male">Male</div>
-        <div class="item" data-value="female">Female</div>
-      </div>
-    </div>
+    
+    <h4>Which Bus Stops?</h4>
+    <div id="bus-stop-section"></div>
 
     <script src="./dist/bundle.js"></script>
-    <!-- <script src="./Resources/UI-Dropdown/dropdown.min.js"></script> -->
+    <script>$('.ui.dropdown').dropdown();</script>
 </body>
 </html>

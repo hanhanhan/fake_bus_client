@@ -24,8 +24,5 @@ socket.on('schedule', (schedule) => {
 })
 
 // on document load, set busStops = 1, 2 => trigger update of schedule
-const busStopsSelector = document.getElementById('bus-stop-selection')
+const busStopsSelector = document.getElementById('bus-stop-section')
 busStopsSelector.innerHTML = makeBusStopSelectionHtml()
-const busStopInputs = document.getElementsByClassName('bus-stop')
-    .foreach(console.log(item))
-// busStopsSelectors.onchange = event.target => {console.log(event.target)}
