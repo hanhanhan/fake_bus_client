@@ -3,7 +3,7 @@
 import io from 'socket.io-client'
 
 
-let socket = io('http://fakebus.hanhanhan.org/', 
+let socket = io('http://localhost:5000/', 
     {
         transports: ['websocket'],
     })
