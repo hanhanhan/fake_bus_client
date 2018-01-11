@@ -3337,7 +3337,8 @@ module.exports = function(obj, fn){
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Modules_ScheduleHTML_js__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Modules_APIConnection_js__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Modules_BusStopSelectionHtml__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Modules_InitialBusStops_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Modules_BusStopUpdate_js__ = __webpack_require__(49);
 
 
 
@@ -3345,30 +3346,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+let scheduleArg
+const busStopsSelect = document.getElementById('bus-stop-select')
 
-let busStops = ["1", "2"]
 
 function update(schedule){
-  const makeHtml = __WEBPACK_IMPORTED_MODULE_0__Modules_ScheduleHTML_js__["a" /* default */].bind(null, schedule)
+    const busStops = getBusStops()
+    const makeHtml = __WEBPACK_IMPORTED_MODULE_0__Modules_ScheduleHTML_js__["a" /* default */].bind(null, schedule)
 
-  const filteredScheduleHtml = busStops
-    .map((busStop) => makeHtml(busStop))
-    .join('')
+    document.getElementById('schedule').innerHTML = 
+        busStops.map((busStop) => makeHtml(busStop))
+        .join('')
+}
 
-    document.getElementById('schedule').innerHTML = filteredScheduleHtml
+function getBusStops(){
+    let busStops = Array.from(
+        document.getElementById('bus-stop-select')
+        .selectedOptions)
+        .map((stop) => stop.value)
+
+    if (busStops.length < 1) {
+        return __WEBPACK_IMPORTED_MODULE_2__Modules_InitialBusStops_js__["a" /* default */]
+    } else {
+        return busStops
+    }
 }
 
 __WEBPACK_IMPORTED_MODULE_1__Modules_APIConnection_js__["a" /* default */].on('schedule', (schedule) => {
-  update(schedule)
-  setInterval(update, 15000, schedule)
+    update(schedule)
+    setInterval(update, 15000, schedule)
+    scheduleArg = schedule
 })
 
-// on document load, set busStops = 1, 2 => trigger update of schedule
-// const busStopsSelector = document.getElementById('bus-stop-selection')
-// busStopsSelector.innerHTML = makeBusStopSelectionHtml()
-// const busStopInputs = document.getElementsByClassName('bus-stop')
-//     .foreach(console.log(item))
-// busStopsSelectors.onchange = event.target => {console.log(event.target)}
+function updateOnUI(){
+    update(scheduleArg)
+}
+
+busStopsSelect.onchange = updateOnUI  
+//NOTE: update.bind(null, scheduleArg) doesn't work
+
+
 
 /***/ }),
 /* 21 */
@@ -3456,8 +3473,11 @@ function difference(now, later){
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_socket_io_client__);
 
 
-// socket
-let socket = __WEBPACK_IMPORTED_MODULE_0_socket_io_client___default()('http://127.0.0.1:5000/', 
+
+
+
+
+let socket = __WEBPACK_IMPORTED_MODULE_0_socket_io_client___default()('https://fakebus.hanhanhan.org/', 
     {
         transports: ['websocket'],
     })
@@ -6799,24 +6819,70 @@ Backoff.prototype.setJitter = function(jitter){
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export default */
+
+
+function getInitialBusStops(){
+    //Something with location services
+    return ["1", "2"]
+}
+
+const initialBusStops = getInitialBusStops()
+
+
+/* harmony default export */ __webpack_exports__["a"] = (initialBusStops);
+
+/***/ }),
+/* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BusStopSelectionHTML__ = __webpack_require__(50);
+
+
+
+
+let busStopsSection = document.getElementById('bus-stop-section')
+busStopsSection.innerHTML = Object(__WEBPACK_IMPORTED_MODULE_0__BusStopSelectionHTML__["a" /* default */])()
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = makeBusStopSelectionHtml;
 
 
 function makeBusStopSelectionHtml(){   
+    return `
+    <select name="bus stop select" multiple="" class="ui dropdown" id="bus-stop-select">
+        ${makeBusStopOptionHtml()}
+    </select>
+    `
+}
+
+function makeBusStopOptionHtml(){
     let busStopsArray = []
     let stopHTML
-    for (let stop = 1; stop < 11; stop++){  
-        stopHTML = 
-        `<div class="bus-stop">
-            <label>
-                <input type="checkbox" hidden value="${stop}" size="10">
-                <span>${stop}</span>
-            </label>
-        </div>`
 
+    // Header/default value
+    busStopsArray.push(`
+        <option value="">
+            Nearest Bus Stops
+        </option>
+        `)
+    
+    // Numbered stops
+    for (let stop = 1; stop < 11; stop++){  
+        let stopHTML = 
+        `<option value="${stop}">
+            ${stop}
+        </option>
+        `
         busStopsArray.push(stopHTML)
     }
-    return busStopsArray.join('')
+
+    return busStopsArray.join('') 
 }
 
 /***/ })
