@@ -4,6 +4,7 @@ import makeScheduleHtml from './Modules/ScheduleHTML.js'
 import socket from './Modules/APIConnection.js'
 import initialBusStops from './Modules/InitialBusStops.js'
 import './Modules/BusStopUpdate.js'
+import startScheduleUpdate from './Modules/ScheduleUpdate.js'
 
 let scheduleArg
 const busStopsSelect = document.getElementById('bus-stop-select')
@@ -33,7 +34,7 @@ function getBusStops(){
 
 socket.on('schedule', (schedule) => {
     update(schedule)
-    setInterval(update, 15000, schedule)
+    startScheduleUpdate(update, 15000, schedule)
     scheduleArg = schedule
 })
 
