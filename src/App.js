@@ -4,9 +4,9 @@ import initialBusStops from './Modules/InitialBusStops'
 import './Modules/BusStopUpdate'
 import startScheduleUpdate from './Modules/ScheduleUpdate'
 
+
 let scheduleArg
 const busStopsSelect = document.getElementById('bus-stop-select')
-
 
 function update(schedule){
     const busStops = getBusStops()
