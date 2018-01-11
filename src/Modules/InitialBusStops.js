@@ -1,5 +1,3 @@
-'use strict'
-
 function getInitialBusStops(){
     //Something with location services
     return ["1", "2"]

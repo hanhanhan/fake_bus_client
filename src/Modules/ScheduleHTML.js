@@ -1,5 +1,3 @@
-'use strict'
-
 import formatRouteTimes from './FormatRouteTimes.js'
 
 const tableHeader = `

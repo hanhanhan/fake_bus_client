@@ -1,5 +1,3 @@
-'use strict'
-
 export default function makeBusStopSelectionHtml(){   
     return `
     <select name="bus stop select" multiple="" class="ui dropdown" id="bus-stop-select">

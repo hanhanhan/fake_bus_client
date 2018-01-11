@@ -1,10 +1,8 @@
-'use strict'
-
-import makeScheduleHtml from './Modules/ScheduleHTML.js'
-import socket from './Modules/APIConnection.js'
-import initialBusStops from './Modules/InitialBusStops.js'
-import './Modules/BusStopUpdate.js'
-import startScheduleUpdate from './Modules/ScheduleUpdate.js'
+import makeScheduleHtml from './Modules/ScheduleHTML'
+import socket from './Modules/APIConnection'
+import initialBusStops from './Modules/InitialBusStops'
+import './Modules/BusStopUpdate'
+import startScheduleUpdate from './Modules/ScheduleUpdate'
 
 let scheduleArg
 const busStopsSelect = document.getElementById('bus-stop-select')

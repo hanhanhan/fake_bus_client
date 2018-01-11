@@ -1,5 +1,3 @@
-'use strict'
-
 export default function formatRouteTimes(route_times){
     const date = new Date()
     const timestamp = date.getMinutes()
