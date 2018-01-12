@@ -5,5 +5,4 @@ function getInitialBusStops(){
 
 const initialBusStops = getInitialBusStops()
 
-
 export default initialBusStops

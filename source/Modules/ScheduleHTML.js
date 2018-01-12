@@ -3,8 +3,8 @@ import formatRouteTimes from './FormatRouteTimes.js'
 const tableHeader = `
     <thead>
       <tr>
-        <th>Route</th>
-        <th>Arriving In</th>
+        <th><h3>Route</h3></th>
+        <th><h3>Arriving In</h3></th>
       </tr>
     </thead>
 `
@@ -15,8 +15,8 @@ function makeTableRow(routeSchedule){
 
     return (`
     <tr>
-        <td class="route route-${routeName}">${routeName}</td>
-        <td>${upcomingBuses}</td>      
+        <td class="route route-${routeName}"><h4>${routeName}</h4></td>
+        <td><h4>${upcomingBuses}</h4></td>      
     </tr>`
     )
 }
@@ -27,7 +27,7 @@ export default function makeScheduleHtml(schedule, busStop){
     let routes = Object.entries(routesSchedule)
 
     return (`
-    <h4>Bus Stop ${busStop}</h4>
+    <h2>Bus Stop ${busStop}</h2>
     <table class="u-full-width">
       ${tableHeader}
       <tbody>

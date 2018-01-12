@@ -40,6 +40,7 @@ function updateOnUI(){
     update(scheduleArg)
 }
 
+// Listen to user selection
 busStopsSelect.onchange = updateOnUI  
-//NOTE: update.bind(null, scheduleArg) doesn't work
+
 
